@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const { width } = Dimensions.get("window");
 
@@ -11,7 +12,13 @@ const ProductCard = ({ item }) => {
         {item.title}
       </Text>
       <Text style={styles.productBrand}>{item.brand}</Text>
-      <Text style={styles.productPrice}>${item.price}</Text>
+      <View style={styles.priceRatingContainer}>
+        <Text style={styles.productPrice}>${item.price}</Text>
+        <View style={styles.ratingContainer}>
+          <Ionicons name="star" size={16} color="#FFD700" />
+          <Text style={styles.productRating}>{item.rating}</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -50,10 +57,25 @@ const styles = StyleSheet.create({
     maxWidth: "100%",
     color: "#808080",
   },
+  priceRatingContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   productPrice: {
     fontSize: 20,
     fontWeight: "bold",
     marginVertical: 5,
+    textAlign: "left",
+  },
+  ratingContainer: {
+    flexDirection: "row",
+  },
+  productRating: {
+    fontSize: 14,
+    color: "#808080",
+    textAlign: "right",
+    marginLeft: 2,
   },
 });
 
