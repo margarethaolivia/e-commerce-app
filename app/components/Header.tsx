@@ -8,59 +8,27 @@ import {
   Dimensions,
 } from "react-native";
 import SearchInput from "./SearchInput";
+import Banner from "./Banner";
 
 const { width } = Dimensions.get("window");
 
-const bannerImages = [
-  { id: "1", src: require("./../../assets/banner1.jpg") },
-  { id: "2", src: require("./../../assets/banner2.jpg") },
-  { id: "3", src: require("./../../assets/banner3.jpg") },
-];
-
 const categories = [
-  { id: "1", name: "Smartphones" },
-  { id: "2", name: "Laptops" },
-  { id: "3", name: "Fragrances" },
-  { id: "4", name: "Skincare" },
-  { id: "5", name: "Groceries" },
-  { id: "6", name: "Home Decoration" },
+  { id: "0", text: "All", name: "all" },
+  { id: "1", text: "Smartphones", name: "smartphones" },
+  { id: "2", text: "Laptops", name: "laptops" },
+  { id: "3", text: "Fragrances", name: "fragrances" },
+  { id: "4", text: "Skincare", name: "skincare" },
+  { id: "5", text: "Groceries", name: "groceries" },
+  { id: "6", text: "Home Decoration", name: "home-decoration" },
 ];
 
 const Header = () => {
-  const flatListRef = useRef<FlatList>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % bannerImages.length;
-      setCurrentIndex(nextIndex);
-
-      if (flatListRef.current) {
-        flatListRef.current.scrollToIndex({ animated: true, index: nextIndex });
-      }
-    }, 2000);
-
-    return () => clearInterval(timer);
-  }, [currentIndex]);
-
   return (
     <View>
       <Text style={styles.userName}>Hello, Olivia!</Text>
       <Text style={styles.headerText}>Welcome to the E-Commerce App</Text>
       <SearchInput />
-      <View style={styles.bannerContainer}>
-        <FlatList
-          data={bannerImages}
-          horizontal
-          pagingEnabled
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Image source={item.src} style={styles.bannerImage} />
-          )}
-          showsHorizontalScrollIndicator={false}
-          ref={flatListRef}
-        />
-      </View>
+      <Banner />
       <View style={styles.categoriesContainer}>
         <Text style={styles.sectionTitle}>Categories</Text>
         <FlatList
@@ -69,7 +37,7 @@ const Header = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.categoryItem}>
-              <Text>{item.name}</Text>
+              <Text>{item.text}</Text>
             </View>
           )}
           showsHorizontalScrollIndicator={false}
@@ -84,7 +52,7 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 32,
     fontWeight: "bold",
-    paddingTop: 60,
+    paddingTop: 50,
   },
   headerText: {
     fontSize: 20,
@@ -92,6 +60,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   bannerContainer: {
+    marginTop: 20,
     height: 200,
     width: width,
   },
@@ -110,7 +79,7 @@ const styles = StyleSheet.create({
   categoryItem: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: "#ccc",

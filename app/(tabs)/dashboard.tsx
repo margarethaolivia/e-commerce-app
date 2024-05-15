@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, FlatList, StyleSheet } from "react-native";
-import Header from "./../components/Header";
-import ProductCard from "./../components/ProductCard";
+import Header from "../components/Header";
+import ProductCard from "../components/ProductCard";
 
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
