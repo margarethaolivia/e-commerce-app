@@ -12,9 +12,18 @@ import Categories from "../components/Categories";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=100")
+    fetchProducts(selectedCategory);
+  }, [selectedCategory]);
+
+  const fetchProducts = (category) => {
+    let url = "https://dummyjson.com/products";
+    if (category !== "all") {
+      url = `https://dummyjson.com/product/category/${category}`;
+    }
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);
@@ -22,14 +31,21 @@ const ProductList = () => {
       .catch((error) => {
         console.error("Error fetching data: ", error);
       });
-  }, []);
+  };
+
+  const handleCategoryPress = (categoryId) => {
+    setSelectedCategory(categoryId);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Product List</Text>
       <SearchInput />
       <View style={styles.categoriesContainer}>
-        <Categories />
+        <Categories
+          selectedCategory={selectedCategory}
+          onPress={handleCategoryPress}
+        />
       </View>
       <FlatList
         data={products}

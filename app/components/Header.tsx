@@ -14,6 +14,12 @@ import Categories from "./Categories";
 const { width } = Dimensions.get("window");
 
 const Header = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const handleCategoryPress = (categoryId) => {
+    setSelectedCategory(categoryId);
+  };
+
   return (
     <View>
       <Text style={styles.userName}>Hello, Olivia!</Text>
@@ -22,7 +28,10 @@ const Header = () => {
       <Banner />
       <View style={styles.categoriesContainer}>
         <Text style={styles.sectionTitle}>Categories</Text>
-        <Categories />
+        <Categories
+          selectedCategory={selectedCategory}
+          onPress={handleCategoryPress}
+        />
       </View>
       <Text style={styles.sectionTitle}>Recommendation</Text>
     </View>

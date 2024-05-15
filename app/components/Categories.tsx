@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -6,8 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import SearchInput from "./../components/SearchInput";
-import ProductCard from "../components/ProductCard";
 
 const categories = [
   { id: "0", text: "All", name: "all" },
@@ -19,22 +17,16 @@ const categories = [
   { id: "6", text: "Home Decoration", name: "home-decoration" },
 ];
 
-const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState("0");
-
-  const handleCategoryPress = (categoryId) => {
-    setSelectedCategory(categoryId);
-  };
-
+const Categories = ({ selectedCategory, onPress }) => {
   const renderCategoryItem = ({ item }) => {
-    const isSelected = item.id === selectedCategory;
+    const isSelected = item.name === selectedCategory;
     return (
       <TouchableOpacity
         style={[
           styles.categoryItem,
           isSelected && { backgroundColor: "#8B4000", borderColor: "#000" },
         ]}
-        onPress={() => handleCategoryPress(item.id)}
+        onPress={() => onPress(item.name)}
       >
         <Text
           style={[
