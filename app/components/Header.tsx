@@ -9,18 +9,9 @@ import {
 } from "react-native";
 import SearchInput from "./SearchInput";
 import Banner from "./Banner";
+import Categories from "./Categories";
 
 const { width } = Dimensions.get("window");
-
-const categories = [
-  { id: "0", text: "All", name: "all" },
-  { id: "1", text: "Smartphones", name: "smartphones" },
-  { id: "2", text: "Laptops", name: "laptops" },
-  { id: "3", text: "Fragrances", name: "fragrances" },
-  { id: "4", text: "Skincare", name: "skincare" },
-  { id: "5", text: "Groceries", name: "groceries" },
-  { id: "6", text: "Home Decoration", name: "home-decoration" },
-];
 
 const Header = () => {
   return (
@@ -31,17 +22,7 @@ const Header = () => {
       <Banner />
       <View style={styles.categoriesContainer}>
         <Text style={styles.sectionTitle}>Categories</Text>
-        <FlatList
-          data={categories}
-          horizontal
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.categoryItem}>
-              <Text>{item.text}</Text>
-            </View>
-          )}
-          showsHorizontalScrollIndicator={false}
-        />
+        <Categories />
       </View>
       <Text style={styles.sectionTitle}>Recommendation</Text>
     </View>

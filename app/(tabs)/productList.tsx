@@ -8,19 +8,9 @@ import {
 } from "react-native";
 import SearchInput from "./../components/SearchInput";
 import ProductCard from "../components/ProductCard";
-
-const categories = [
-  { id: "0", text: "All", name: "all" },
-  { id: "1", text: "Smartphones", name: "smartphones" },
-  { id: "2", text: "Laptops", name: "laptops" },
-  { id: "3", text: "Fragrances", name: "fragrances" },
-  { id: "4", text: "Skincare", name: "skincare" },
-  { id: "5", text: "Groceries", name: "groceries" },
-  { id: "6", text: "Home Decoration", name: "home-decoration" },
-];
+import Categories from "../components/Categories";
 
 const ProductList = () => {
-  const [selectedCategory, setSelectedCategory] = useState("0");
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -34,44 +24,12 @@ const ProductList = () => {
       });
   }, []);
 
-  const handleCategoryPress = (categoryId) => {
-    setSelectedCategory(categoryId);
-  };
-
-  const renderCategoryItem = ({ item }) => {
-    const isSelected = item.id === selectedCategory;
-    return (
-      <TouchableOpacity
-        style={[
-          styles.categoryItem,
-          isSelected && { backgroundColor: "#8B4000", borderColor: "#000" },
-        ]}
-        onPress={() => handleCategoryPress(item.id)}
-      >
-        <Text
-          style={[
-            styles.categoryText,
-            isSelected && { color: "#fff", fontWeight: "bold" },
-          ]}
-        >
-          {item.text}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Product List</Text>
       <SearchInput />
       <View style={styles.categoriesContainer}>
-        <FlatList
-          data={categories}
-          horizontal
-          keyExtractor={(item) => item.id}
-          renderItem={renderCategoryItem}
-          showsHorizontalScrollIndicator={false}
-        />
+        <Categories />
       </View>
       <FlatList
         data={products}
@@ -100,17 +58,6 @@ const styles = StyleSheet.create({
   categoriesContainer: {
     marginTop: 20,
     marginBottom: 15,
-  },
-  categoryItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginHorizontal: 5,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
-  categoryText: {
-    color: "#000",
   },
   productsContainer: {
     justifyContent: "space-between",
