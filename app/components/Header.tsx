@@ -12,9 +12,9 @@ import SearchInput from "./SearchInput";
 const { width } = Dimensions.get("window");
 
 const bannerImages = [
-  { id: "1", src: require("./../../assets/placeholder.png") },
-  { id: "2", src: require("./../../assets/placeholder.png") },
-  { id: "3", src: require("./../../assets/placeholder.png") },
+  { id: "1", src: require("./../../assets/banner1.jpg") },
+  { id: "2", src: require("./../../assets/banner2.jpg") },
+  { id: "3", src: require("./../../assets/banner3.jpg") },
 ];
 
 const categories = [

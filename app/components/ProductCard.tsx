@@ -6,10 +6,11 @@ const { width } = Dimensions.get("window");
 const ProductCard = ({ item }) => {
   return (
     <View style={styles.productItem}>
-      <Image source={item.image} style={styles.productImage} />
+      <Image source={{ uri: item.thumbnail }} style={styles.productImage} />
       <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
-        {item.name}
+        {item.title}
       </Text>
+      <Text style={styles.productBrand}>{item.brand}</Text>
       <Text style={styles.productPrice}>${item.price}</Text>
     </View>
   );
@@ -42,6 +43,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 10,
     maxWidth: "100%",
+  },
+  productBrand: {
+    fontSize: 12,
+    marginTop: 2,
+    maxWidth: "100%",
+    color: "#808080",
   },
   productPrice: {
     fontSize: 20,

@@ -1,37 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, FlatList, StyleSheet } from "react-native";
 import Header from "./../components/Header";
 import ProductCard from "./../components/ProductCard";
 
-const trendingProducts = [
-  {
-    id: "1",
-    name: "Microsoft Surface Laptop 4",
-    image: require("./../../assets/placeholder.png"),
-    price: "100",
-  },
-  {
-    id: "2",
-    name: "Non-Alcoholic Concentrated Perfume Oil",
-    image: require("./../../assets/placeholder.png"),
-    price: "150",
-  },
-  {
-    id: "3",
-    name: "Product 3",
-    image: require("./../../assets/placeholder.png"),
-    price: "200",
-  },
-];
-
 const HomeScreen = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products?limit=100")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         ListHeaderComponent={Header}
-        data={trendingProducts}
+        data={products}
         renderItem={({ item }) => <ProductCard item={item} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         contentContainerStyle={styles.productsContainer}
         showsVerticalScrollIndicator={false}
