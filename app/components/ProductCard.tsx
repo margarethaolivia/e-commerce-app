@@ -1,12 +1,29 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "expo-router";
 
 const { width } = Dimensions.get("window");
 
 const ProductCard = ({ item }) => {
+  const navigation = useNavigation();
+
+  const handleCardPress = () => {
+    navigation.navigate({
+      name: "product/[productId]",
+      params: { productId: item.id },
+    });
+  };
+
   return (
-    <View style={styles.productItem}>
+    <TouchableOpacity style={styles.productItem} onPress={handleCardPress}>
       <Image source={{ uri: item.thumbnail }} style={styles.productImage} />
       <Text
         className="text-sm mt-2 max-w-full"
@@ -27,7 +44,7 @@ const ProductCard = ({ item }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
