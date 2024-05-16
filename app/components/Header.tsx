@@ -13,6 +13,12 @@ import Categories from "./Categories";
 
 const { width } = Dimensions.get("window");
 
+const bannerImages = [
+  require("./../../assets/banner1.jpg"),
+  require("./../../assets/banner2.jpg"),
+  require("./../../assets/banner3.jpg"),
+];
+
 const Header = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -27,7 +33,8 @@ const Header = () => {
         Welcome to the E-Commerce App
       </Text>
       <SearchInput />
-      <Banner />
+      {/* Pass the imported images as props */}
+      <Banner images={bannerImages} />
       <View className="my-3">
         <Text className="text-xl font-bold my-2">Categories</Text>
         <Categories

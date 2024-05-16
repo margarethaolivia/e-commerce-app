@@ -33,7 +33,7 @@ export default function TabLayout() {
           title: "Product List",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "list" : "list-outline"}
               color={color}
             />
           ),
@@ -45,7 +45,7 @@ export default function TabLayout() {
           title: "Profile",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "person" : "person-outline"}
               color={color}
             />
           ),

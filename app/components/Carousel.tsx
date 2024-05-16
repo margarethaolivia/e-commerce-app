@@ -3,7 +3,7 @@ import { View, Image, FlatList, StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
 
-const Banner = ({ images, resizeMode }) => {
+const Carousel = ({ images, resizeMode }) => {
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -21,7 +21,7 @@ const Banner = ({ images, resizeMode }) => {
   }, [currentIndex, images]);
 
   return (
-    <View className="mt-5 h-48 w-full">
+    <View className="mt-1 h-72 w-fullr">
       <FlatList
         data={images}
         horizontal
@@ -29,8 +29,8 @@ const Banner = ({ images, resizeMode }) => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <Image
-            source={item}
-            style={styles.bannerImage}
+            source={{ uri: item }}
+            style={styles.carouselImage}
             resizeMode={resizeMode}
           />
         )}
@@ -42,10 +42,17 @@ const Banner = ({ images, resizeMode }) => {
 };
 
 const styles = StyleSheet.create({
-  bannerImage: {
+  container: {
+    marginTop: 5,
+    height: 200,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  carouselImage: {
     width: width,
     height: "100%",
   },
 });
 
-export default Banner;
+export default Carousel;

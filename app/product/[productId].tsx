@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
+import Carousel from "./../components/Carousel";
 
 const ProductDetail = () => {
   const { productId } = useLocalSearchParams();
@@ -29,7 +30,7 @@ const ProductDetail = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: product.thumbnail }} style={styles.image} />
+      <Carousel images={product.images} resizeMode="contain" />
       <Text style={styles.title}>{product.title}</Text>
       <Text style={styles.brand}>{product.brand}</Text>
       <Text style={styles.price}>${product.price}</Text>
