@@ -7,7 +7,7 @@ const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=100")
+    fetch("https://dummyjson.com/products?limit=6")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);

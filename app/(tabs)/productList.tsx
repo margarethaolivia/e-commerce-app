@@ -13,7 +13,7 @@ const ProductList = () => {
   }, [selectedCategory]);
 
   const fetchProducts = (category) => {
-    let url = "https://dummyjson.com/products";
+    let url = "https://dummyjson.com/products?limit=100";
     if (category !== "all") {
       url = `https://dummyjson.com/product/category/${category}`;
     }

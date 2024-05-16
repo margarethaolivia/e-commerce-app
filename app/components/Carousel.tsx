@@ -21,7 +21,7 @@ const Carousel = ({ images, resizeMode }) => {
   }, [currentIndex, images]);
 
   return (
-    <View className="mt-1 h-72 w-fullr">
+    <View className="p-4 m-1 h-72 w-fullr">
       <FlatList
         data={images}
         horizontal
