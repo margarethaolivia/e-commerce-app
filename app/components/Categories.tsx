@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { Text, FlatList, TouchableOpacity } from "react-native";
 
 const categories = [
   { id: "0", text: "All", name: "all" },

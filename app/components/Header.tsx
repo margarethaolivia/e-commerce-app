@@ -1,17 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import React, { useState } from "react";
+import { View, Text } from "react-native";
 import SearchInput from "./SearchInput";
 import Banner from "./Banner";
 import Categories from "./Categories";
-
-const { width } = Dimensions.get("window");
 
 const bannerImages = [
   require("./../../assets/banner1.jpg"),
@@ -28,7 +19,7 @@ const Header = () => {
 
   return (
     <View>
-      <Text className="text-3xl font-bold pt-6">Hello, Olivia!</Text>
+      <Text className="text-3xl font-bold pt-3">Hello, Olivia!</Text>
       <Text className="text-xl font-bold mb-5">
         Welcome to the E-Commerce App
       </Text>
@@ -46,24 +37,5 @@ const Header = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  categoriesContainer: {
-    marginVertical: 10,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginVertical: 10,
-  },
-  categoryItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginHorizontal: 3,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
-});
 
 export default Header;
