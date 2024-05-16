@@ -4,15 +4,15 @@ import { Ionicons } from "@expo/vector-icons";
 
 const SearchInput = () => {
   return (
-    <View style={styles.inputContainer}>
+    <View className="flex flex-row items-center border border-gray-300 rounded-2xl px-4 py-2 bg-gray-50">
       <Ionicons
         name="search-outline"
         size={24}
         color="#999"
-        style={styles.searchIcon}
+        className="w-20 h-20 object-contain"
       />
       <TextInput
-        style={styles.input}
+        className="flex-1 text-base text-gray-700 ml-2"
         placeholder="Search for products..."
         placeholderTextColor="#999"
       />

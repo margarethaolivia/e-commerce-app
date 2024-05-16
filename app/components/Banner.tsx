@@ -34,7 +34,7 @@ const Banner = () => {
   }, [currentIndex]);
 
   return (
-    <View style={styles.bannerContainer}>
+    <View className="mt-5 h-48 w-full">
       <FlatList
         data={bannerImages}
         horizontal
@@ -51,11 +51,6 @@ const Banner = () => {
 };
 
 const styles = StyleSheet.create({
-  bannerContainer: {
-    marginTop: 20,
-    height: 200,
-    width: width,
-  },
   bannerImage: {
     width: width,
     height: "100%",

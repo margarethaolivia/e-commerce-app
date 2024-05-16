@@ -22,42 +22,25 @@ const Header = () => {
 
   return (
     <View>
-      <Text style={styles.userName}>Hello, Olivia!</Text>
-      <Text style={styles.headerText}>Welcome to the E-Commerce App</Text>
+      <Text className="text-3xl font-bold pt-6">Hello, Olivia!</Text>
+      <Text className="text-xl font-bold mb-5">
+        Welcome to the E-Commerce App
+      </Text>
       <SearchInput />
       <Banner />
-      <View style={styles.categoriesContainer}>
-        <Text style={styles.sectionTitle}>Categories</Text>
+      <View className="my-3">
+        <Text className="text-xl font-bold my-2">Categories</Text>
         <Categories
           selectedCategory={selectedCategory}
           onPress={handleCategoryPress}
         />
       </View>
-      <Text style={styles.sectionTitle}>Recommendation</Text>
+      <Text className="text-xl font-bold my-2">Recommendation</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  userName: {
-    fontSize: 32,
-    fontWeight: "bold",
-    paddingTop: 50,
-  },
-  headerText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  bannerContainer: {
-    marginTop: 20,
-    height: 200,
-    width: width,
-  },
-  bannerImage: {
-    width: width,
-    height: "100%",
-  },
   categoriesContainer: {
     marginVertical: 10,
   },

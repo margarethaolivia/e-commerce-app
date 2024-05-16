@@ -8,15 +8,23 @@ const ProductCard = ({ item }) => {
   return (
     <View style={styles.productItem}>
       <Image source={{ uri: item.thumbnail }} style={styles.productImage} />
-      <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
+      <Text
+        className="text-sm mt-2 max-w-full"
+        numberOfLines={1}
+        ellipsizeMode="tail"
+      >
         {item.title}
       </Text>
-      <Text style={styles.productBrand}>{item.brand}</Text>
-      <View style={styles.priceRatingContainer}>
-        <Text style={styles.productPrice}>${item.price}</Text>
-        <View style={styles.ratingContainer}>
+      <Text className="text-xs mt-1 max-w-full text-gray-500">
+        {item.brand}
+      </Text>
+      <View className="flex flex-row justify-between items-center">
+        <Text className="text-2xl font-bold my-2 text-left">${item.price}</Text>
+        <View className="flex flex-row">
           <Ionicons name="star" size={16} color="#FFD700" />
-          <Text style={styles.productRating}>{item.rating}</Text>
+          <Text className="text-sm text-gray-500 text-right ml-1">
+            {item.rating}
+          </Text>
         </View>
       </View>
     </View>
@@ -45,37 +53,6 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: "cover",
     borderRadius: 10,
-  },
-  productName: {
-    fontSize: 14,
-    marginTop: 10,
-    maxWidth: "100%",
-  },
-  productBrand: {
-    fontSize: 12,
-    marginTop: 2,
-    maxWidth: "100%",
-    color: "#808080",
-  },
-  priceRatingContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  productPrice: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginVertical: 5,
-    textAlign: "left",
-  },
-  ratingContainer: {
-    flexDirection: "row",
-  },
-  productRating: {
-    fontSize: 14,
-    color: "#808080",
-    textAlign: "right",
-    marginLeft: 2,
   },
 });
 

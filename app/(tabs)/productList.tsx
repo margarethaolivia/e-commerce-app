@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import SearchInput from "./../components/SearchInput";
 import ProductCard from "../components/ProductCard";
 import Categories from "../components/Categories";
@@ -38,10 +32,10 @@ const ProductList = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Product List</Text>
+    <View className="flex-1 bg-white px-5 pt-10">
+      <Text className="text-2xl font-bold mb-4">Product List</Text>
       <SearchInput />
-      <View style={styles.categoriesContainer}>
+      <View className="mt-5 mb-4">
         <Categories
           selectedCategory={selectedCategory}
           onPress={handleCategoryPress}
@@ -52,33 +46,11 @@ const ProductList = () => {
         renderItem={({ item }) => <ProductCard item={item} />}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        contentContainerStyle={styles.productsContainer}
+        contentContainerClassName="flex justify-between pb-5"
         showsVerticalScrollIndicator={false}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 20,
-    paddingTop: 50,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 15,
-  },
-  categoriesContainer: {
-    marginTop: 20,
-    marginBottom: 15,
-  },
-  productsContainer: {
-    justifyContent: "space-between",
-    paddingBottom: 20,
-  },
-});
 
 export default ProductList;

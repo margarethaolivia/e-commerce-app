@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, FlatList, StyleSheet } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
@@ -18,30 +18,18 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView className="flex-1 bg-white px-5 pt-10">
       <FlatList
         ListHeaderComponent={Header}
         data={products}
         renderItem={({ item }) => <ProductCard item={item} />}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        contentContainerStyle={styles.productsContainer}
+        contentContainerClassName="flex justify-between pb-5"
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 20,
-  },
-  productsContainer: {
-    justifyContent: "space-between",
-    paddingBottom: 20,
-  },
-});
 
 export default HomeScreen;
