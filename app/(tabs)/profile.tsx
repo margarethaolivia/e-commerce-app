@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,17 +7,45 @@ import {
   StyleSheet,
   TouchableOpacity,
   Linking,
+  Modal,
+  Button,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "expo-router";
 
 const Profile = () => {
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+
   const handleLinkPress = (url) => {
     Linking.openURL(url);
   };
 
+  const navigation = useNavigation();
+
+  const handleLogout = () => {
+    setShowConfirmationModal(true);
+  };
+
+  const confirmLogout = async () => {
+    try {
+      // Remove token from AsyncStorage
+      await AsyncStorage.removeItem("token");
+      // Navigate to index page
+      navigation.navigate({ name: "index" });
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <View className="flex-1 bg-white pt-12">
-      <View style={styles.shadow}>
+      <View className="flex flex-row justify-between" style={styles.shadow}>
         <Text className="text-xl font-bold mb-2 px-5 pt-2">Profile</Text>
+        <TouchableOpacity onPress={handleLogout}>
+          <Text className="text-lg font-semibold mb-2 px-5 pt-2 text-red-500">
+            Logout
+          </Text>
+        </TouchableOpacity>
       </View>
       <ScrollView className="flex bg-slate-100">
         <View
@@ -311,6 +339,34 @@ const Profile = () => {
           </View>
         </View>
       </ScrollView>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={showConfirmationModal}
+        onRequestClose={() => setShowConfirmationModal(false)}
+      >
+        <View
+          className="flex-1 justify-center items-center"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+        >
+          <View
+            className="m-5 bg-white rounded-2xl py-6 px-10 items-center"
+            style={styles.modalView}
+          >
+            <Text className="text-xl font-bold text-center mb-6 leading-6">
+              Are you sure {`\n`} you want to logout?
+            </Text>
+            <View className="flex flex-row">
+              <Button title="Logout" onPress={confirmLogout} />
+              <View className="p-2"></View>
+              <Button
+                title="Cancel"
+                onPress={() => setShowConfirmationModal(false)}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -325,6 +381,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 10,
     elevation: 3,
+  },
+  modalView: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
 

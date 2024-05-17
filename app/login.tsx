@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import CustomButton from "./components/CustomButton";
 import { useNavigation } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = () => {
   const [username, setUsername] = useState("");
@@ -34,10 +35,18 @@ const LoginScreen = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.token) {
-          navigation.navigate({
-            name: "(tabs)",
-            params: { username: data.firstName },
-          });
+          AsyncStorage.setItem("token", data.token)
+            .then(() => {
+              // Reset input fields
+              setUsername("");
+              setPassword("");
+
+              navigation.navigate({
+                name: "(tabs)",
+                params: { username: data.firstName },
+              });
+            })
+            .catch((error) => console.error("Error saving token:", error));
         } else {
           setModalVisible(true);
         }
