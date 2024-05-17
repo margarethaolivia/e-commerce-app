@@ -33,7 +33,7 @@ const ProductList = () => {
 
   return (
     <View className="flex-1 bg-white px-5 pt-12">
-      <Text className="text-2xl font-bold mb-4">Product List</Text>
+      <Text className="text-xl font-bold mb-4 pt-2">Product List</Text>
       <SearchInput />
       <View className="mt-5 mb-4">
         <Categories

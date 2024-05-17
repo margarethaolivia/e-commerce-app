@@ -17,7 +17,7 @@ const Profile = () => {
   return (
     <View className="flex-1 bg-white pt-12">
       <View style={styles.shadow}>
-        <Text className="text-2xl font-bold mb-2 px-5">Profile</Text>
+        <Text className="text-xl font-bold mb-2 px-5 pt-2">Profile</Text>
       </View>
       <ScrollView className="flex bg-slate-100">
         <View

@@ -19,9 +19,9 @@ const Header = () => {
 
   return (
     <View>
-      <Text className="text-3xl font-bold pt-3">Hello, Olivia!</Text>
-      <Text className="text-xl font-bold mb-5">
-        Welcome to the E-Commerce App
+      <Text className="text-3xl font-bold pt-5">Welcome Back!</Text>
+      <Text className="text-xl font-semibold mb-5">
+        Continue your journey at ShopEase
       </Text>
       <SearchInput />
       {/* Pass the imported images as props */}
