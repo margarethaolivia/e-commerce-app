@@ -1,23 +1,38 @@
 # ShopEase E-Commerce Mobile App
 
-<table style="width:100%; text-align:center">
-    <tr>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/onboarding.jpg"/></td>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/login.jpg"/></td>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/dashboard.jpg"/></td>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/productList.jpg"/></td>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/productDetail.jpg"/></td>
-        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/profile.jpg"/></td>
-    </tr>
-    <tr>
-        <td width="200px" align="center">Onboarding</td>
-        <td width="200px" align="center">Login</td>
-        <td width="200px" align="center">Dashboard</td>
-        <td width="200px" align="center">Product List</td>
-        <td width="200px" align="center">Product Detail</td>
-        <td width="200px" align="center">Profile</td>
-    </tr>
-</table>
+<div style="display: flex; flex-wrap: wrap; justify-content: left; text-align: center;">
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/onboarding.jpg" alt="Onboarding" width="100px">
+    <div>Onboarding</div>
+</div>
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/login.jpg" alt="Login" width="100px">
+    <div>Login</div>
+</div>
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/dashboard.jpg" alt="Dashboard" width="100px">
+    <div>Dashboard</div>
+</div>
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/productList.jpg" alt="Product List" width="100px">
+    <div>Product List</div>
+</div>
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/productDetail.jpg" alt="Product Detail" width="100px">
+    <div>Product Detail</div>
+</div>
+
+<div style="margin: 10px;">
+    <img src="./assets/images/screenshots/profile.jpg" alt="Profile" width="100px">
+    <div>Profile</div>
+</div>
+
+</div>
 
 ## About the Project
 
