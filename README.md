@@ -2,20 +2,20 @@
 
 <table style="width:100%; text-align:center">
     <tr>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/onboarding.jpg"/></td>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/login.jpg"/></td>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/dashboard.jpg"/></td>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/productList.jpg"/></td>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/productDetail.jpg"/></td>
-        <td width="100px" align="center"><img  src="./assets/images/screenshots/profile.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/onboarding.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/login.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/dashboard.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/productList.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/productDetail.jpg"/></td>
+        <td width="200px" align="center"><img width="180px" height="300px" src="./assets/images/screenshots/profile.jpg"/></td>
     </tr>
     <tr>
-        <td width="100px" align="center">Onboarding</td>
-        <td width="100px" align="center">Login</td>
-        <td width="100px" align="center">Dashboard</td>
-        <td width="100px" align="center">Product List</td>
-        <td width="100px" align="center">Product Detail</td>
-        <td width="100px" align="center">Profile</td>
+        <td width="200px" align="center">Onboarding</td>
+        <td width="200px" align="center">Login</td>
+        <td width="200px" align="center">Dashboard</td>
+        <td width="200px" align="center">Product List</td>
+        <td width="200px" align="center">Product Detail</td>
+        <td width="200px" align="center">Profile</td>
     </tr>
 </table>
 
