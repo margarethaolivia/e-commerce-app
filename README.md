@@ -1,38 +1,34 @@
 # ShopEase E-Commerce Mobile App
 
-<div style="display: flex; flex-wrap: wrap; justify-content: left; text-align: center;">
+<table>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/onboarding.jpg" alt="Onboarding" height="300px">
+      <div>Onboarding</div>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/login.jpg" alt="Login" height="300px">
+      <div>Login</div>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/dashboard.jpg" alt="Dashboard" height="300px">
+      <div>Dashboard</div>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/productList.jpg" alt="Product List" height="300px">
+      <div>Product List</div>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/productDetail.jpg" alt="Product Detail" height="300px">
+      <div>Product Detail</div>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="./assets/images/screenshots/profile.jpg" alt="Profile" height="300px">
+      <div>Profile</div>
+    </td>
+  </tr>
+</table>
 
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/onboarding.jpg" alt="Onboarding" width="100px">
-    <div>Onboarding</div>
-</div>
-
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/login.jpg" alt="Login" width="100px">
-    <div>Login</div>
-</div>
-
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/dashboard.jpg" alt="Dashboard" width="100px">
-    <div>Dashboard</div>
-</div>
-
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/productList.jpg" alt="Product List" width="100px">
-    <div>Product List</div>
-</div>
-
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/productDetail.jpg" alt="Product Detail" width="100px">
-    <div>Product Detail</div>
-</div>
-
-<div style="margin: 10px;">
-    <img src="./assets/images/screenshots/profile.jpg" alt="Profile" width="100px">
-    <div>Profile</div>
-</div>
-
-</div>
 
 ## About the Project
 
